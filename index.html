@@ -1,0 +1,137 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<title>Luís Pedro Nunes</title>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+	<style>
+	  body {background-color:lightgray}
+	  .botao{
+	  	display: inline-block;
+	  	width: 240px;
+	  	height: 210px;
+	  	text-align: center;
+	  	font-size: 20px;
+	  	color: white;
+	  	background-color: #333;
+	  	vertical-align: top;
+
+  		line-height: 210px;
+	  }
+	  .botao p{
+	  	font-family:  sans-serif;
+	  	display: inline-block;
+		vertical-align: middle;
+		line-height: normal;
+	  }
+	  .botao:hover,.botao p:hover{
+	  	cursor: pointer;
+	  }
+	  img{
+	  	display: inline-block;
+	  }
+	  a{
+	  	color: #999;
+	  	text-decoration: none;
+	  }
+	  a:hover{
+	  	opacity: 0.7;
+	  }
+	  .footer{
+	  	position: fixed;
+	  	bottom: 0;
+	  	left:0;
+	  	right: 0;
+	  	text-align: center;
+	  	padding: 15px;
+	  	color: #666;
+	  	text-decoration: none;
+	  }
+	</style>
+</head>
+<body>
+<a href="https://www.youtube.com/watch?v=rc108pGQQno"><img src="lpn.gif" alt="lpn"/></a>
+<a class="botao" style="background-color: #c0504d;" onclick="playVid(0)">
+	<p>Estes grunhos, estes imbecis</p>
+		<audio preload="auto" class="audio0">
+            <source src="grunhos.mp3" type="audio/mpeg" ></source>
+        </audio>
+</a>
+<a class="botao" style="background-color: #9bbb59;" onclick="playVid(1)">
+	<p>Estes merdas</p>
+		<audio preload="auto" class="audio1">
+            <source src="estesMerdas.mp3" type="audio/mpeg" ></source>
+        </audio>
+</a>
+<a class="botao" style="background-color: #8064a2;" onclick="playVid(2)">
+	<p>Eu já não consigo aguentar esta porcaria desta situação</p>
+		<audio preload="auto" class="audio2">
+            <source src="porcaria.mp3" type="audio/mpeg" ></source>
+        </audio>
+</a>
+<a class="botao" style="background-color: #4bacc6;" onclick="playVid(3)">
+	<p>Capacidade de produzir idiotas que é a universidade</p>
+		<audio preload="auto" class="audio3">
+            <source src="universidade.mp3" type="audio/mpeg" ></source>
+        </audio>
+</a>
+<a class="botao" style="background-color: #f79646;" onclick="playVid(4)">
+	<p>Eu tou completamente farto e indignado</p>
+		<audio preload="auto" class="audio4">
+            <source src="farto.mp3" type="audio/mpeg" ></source>
+        </audio>
+</a>
+<a class="botao" style="background-color: #4f81bd ;" onclick="playVid(5)">
+	<p>Deviam expulsar estes imbecis</p>
+		<audio preload="auto" class="audio5">
+            <source src="deviamExpulsar.mp3" type="audio/mpeg" ></source>
+        </audio>
+</a>
+<a class="botao combo" style="background-color: #666;" onclick="combo(0)">
+	<p>Combo x2</p>
+</a>
+<a class="botao combo" style="background-color: #333;" onclick="combo(1)">
+	<p>Combo x6</p>
+</a>
+<div class="footer">Inspirado por <a href="http://empreentolinho.github.io/instantmg/">empreentolinho</a></div>
+<script src="jquery-1.11.1.min.js"></script>
+<script>
+function playVid(video) { 
+		 $("audio")[video].play();
+}
+function combo(comboNumber) {
+	if(comboNumber == 0){
+		$(".audio0").on('ended', function(){
+			$("audio")[1].play();
+			$(".audio0").off('ended');
+		});
+		$("audio")[0].play();
+	}
+	if(comboNumber == 1){
+		$(".audio0").on('ended', function(){
+			$(".audio0").off('ended');
+			$(".audio1").on('ended', function(){
+				$(".audio1").off('ended');
+				$(".audio2").on('ended', function(){
+					$(".audio2").off('ended');
+					$(".audio3").on('ended', function(){
+						$(".audio3").off('ended');
+						$(".audio4").on('ended', function(){
+							$(".audio4").off('ended');
+							$("audio")[5].play();
+						});
+						$("audio")[4].play();
+					});
+					$("audio")[3].play();
+				});
+				$("audio")[2].play();
+			});
+			$("audio")[1].play();
+		});
+		$("audio")[0].play();
+	}
+}
+
+</script> 
+</body> 
+</html>
